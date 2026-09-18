@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debit Itu Bukan Berarti Nambah, Kok Bisa? — Catatan Belajar Akuntansi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #E9EFE3; --paper-deep: #DCE5D3; --card: #F6F7F1;
+    --line: #B9C6AE; --ink: #202B22; --ink-soft: #55645A;
+    --red: #A2402E; --gold: #A8791F; --focus: #2E5C46;
+    font-family:'Inter', system-ui, sans-serif;
+  }
+  :root:not([data-theme="light"]) { @media (prefers-color-scheme: dark) {
+    --paper:#171F1A; --paper-deep:#10160F; --card:#1D2A20; --line:#354A38;
+    --ink:#E7EEE2; --ink-soft:#9FB09A; --red:#D9705A; --gold:#D3A845; --focus:#7FBF9E;
+  }}
+  :root[data-theme="dark"] {
+    --paper:#171F1A; --paper-deep:#10160F; --card:#1D2A20; --line:#354A38;
+    --ink:#E7EEE2; --ink-soft:#9FB09A; --red:#D9705A; --gold:#D3A845; --focus:#7FBF9E;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--paper); color:var(--ink); -webkit-font-smoothing:antialiased; }
+  a{ color:inherit; }
+  :focus-visible{ outline:2px solid var(--focus); outline-offset:3px; }
+  .wrap{ max-width:720px; margin:0 auto; padding:0 24px; }
+
+  header{ padding:28px 0 18px; border-bottom:1px solid var(--line); }
+  .headbar{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .mark{ width:30px; height:30px; flex:none; }
+  .brand-name{ font-family:'Fraunces', serif; font-size:1.05rem; font-weight:600; }
+  .back{ font-size:0.88rem; color:var(--ink-soft); text-decoration:none; }
+  .back:hover{ color:var(--ink); }
+
+  .post-head{ padding:44px 0 8px; }
+  .post-meta{ display:flex; gap:10px; align-items:center; font-size:0.82rem; margin-bottom:14px; }
+  .post-cat{ color:var(--red); font-weight:600; }
+  .post-date{ color:var(--ink-soft); }
+  .post-head h1{
+    font-family:'Fraunces', serif; font-weight:500; font-size:2rem;
+    line-height:1.25; margin:0 0 10px; max-width:20ch;
+  }
+  .post-head .dek{ color:var(--ink-soft); font-size:1.02rem; line-height:1.6; max-width:56ch; margin:0; }
+
+  article{ padding:28px 0 20px; font-size:1.03rem; line-height:1.75; }
+  article p{ margin:0 0 20px; }
+  article h2{
+    font-family:'Fraunces', serif; font-weight:500; font-size:1.35rem;
+    margin:38px 0 14px;
+  }
+  article .lead{
+    font-family:'Fraunces', serif; font-size:1.22rem; line-height:1.55;
+    color:var(--ink); margin-bottom:26px;
+  }
+
+  .taccount{ background:var(--card); border:1px solid var(--line); border-radius:4px; padding:18px 20px 20px; margin:26px 0; }
+  .taccount .acc-title{ font-family:'Fraunces', serif; font-size:0.98rem; text-align:center; margin:0 0 12px; }
+  .taccount table{ width:100%; border-collapse:collapse; font-size:0.86rem; }
+  .taccount thead th{ text-align:left; font-weight:600; padding:0 0 7px; border-bottom:2px solid var(--ink); }
+  .taccount thead th:last-child{ text-align:right; }
+  .taccount td{ padding:6px 0; border-bottom:1px solid var(--line); color:var(--ink-soft); font-variant-numeric:tabular-nums; }
+  .taccount td:last-child{ text-align:right; }
+  .taccount .caption{ margin:12px 0 0; font-size:0.78rem; color:var(--ink-soft); line-height:1.5; }
+
+  .callout{
+    border-left:3px solid var(--gold); padding:4px 0 4px 18px; margin:26px 0;
+    color:var(--ink-soft); font-size:0.96rem; line-height:1.6;
+  }
+
+  .draft-note{
+    margin-top:44px; padding:16px 18px; background:var(--card);
+    border:1px dashed var(--line); border-radius:4px;
+    font-size:0.85rem; color:var(--ink-soft); line-height:1.6;
+  }
+
+  footer{ border-top:1px solid var(--line); padding:26px 0 40px; color:var(--ink-soft); font-size:0.85rem; margin-top:20px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="headbar">
+      <a class="brand" href="catatan-akuntansi.html">
+        <svg class="mark" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="1" y="1" width="32" height="32" rx="3" stroke="var(--ink)" stroke-width="1.4"/>
+          <line x1="17" y1="4" x2="17" y2="30" stroke="var(--ink)" stroke-width="1.4"/>
+          <line x1="4" y1="11" x2="30" y2="11" stroke="var(--line)" stroke-width="1.1"/>
+          <line x1="4" y1="18" x2="30" y2="18" stroke="var(--line)" stroke-width="1.1"/>
+          <line x1="4" y1="25" x2="30" y2="25" stroke="var(--line)" stroke-width="1.1"/>
+        </svg>
+        <span class="brand-name">Catatan Belajar Akuntansi</span>
+      </a>
+      <a class="back" href="catatan-akuntansi.html">← Semua tulisan</a>
+    </div>
+  </header>
+
+  <div class="post-head">
+    <div class="post-meta">
+      <span class="post-cat">Dasar-dasar</span>
+      <span class="post-date">3 Sep 2026</span>
+    </div>
+    <h1>Debit Itu Bukan Berarti Nambah, Kok Bisa?</h1>
+    <p class="dek">Salah satu kebingungan pertama waktu mulai belajar akuntansi — ternyata debit dan kredit nggak selalu berarti "tambah" atau "kurang".</p>
+  </div>
+
+  <article>
+    <p class="lead">Kalau kamu baru mulai belajar akuntansi dan bingung kenapa "debit" kadang bikin saldo naik, kadang malah bikin saldo turun — tenang, itu wajar banget. Aku juga pernah di titik itu.</p>
+
+    <p>Kesalahan paling umum adalah menganggap debit = tambah dan kredit = kurang, kayak logika plus-minus biasa. Padahal, debit dan kredit itu cuma soal <em>posisi</em>, bukan soal nilai naik atau turun. Efeknya beda-beda, tergantung jenis akunnya.</p>
+
+    <h2>Aturan sebenarnya</h2>
+    <p>Ada lima kelompok akun besar: Aset, Liabilitas (utang), Ekuitas, Pendapatan, dan Beban. Masing-masing punya "sisi normal" sendiri:</p>
+
+    <div class="taccount">
+      <p class="acc-title">Kas (kelompok Aset)</p>
+      <table>
+        <thead><tr><th>Debit</th><th>Kredit</th></tr></thead>
+        <tbody>
+          <tr><td>Penjualan tunai</td><td>—</td></tr>
+          <tr><td>2.500.000</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <p class="caption">Kas termasuk Aset, jadi bertambah di sisi debit. Kalau ini akun Utang (Liabilitas), bertambahnya justru di sisi kredit.</p>
+    </div>
+
+    <p>Jadi, ketika kas bertambah 2.500.000 karena ada penjualan tunai, itu dicatat di debit — bukan karena "debit = nambah", tapi karena kas kebetulan termasuk kelompok akun yang sisi normalnya di debit.</p>
+
+    <div class="callout">Cara paling gampang ngingetnya: hafalkan dulu sisi normal tiap kelompok akun, baru pikirkan efek transaksinya. Jangan kebalik urutannya.</div>
+
+    <h2>Kenapa ini penting dipahami dari awal</h2>
+    <p>Kalau salah paham di sini, nanti pas masuk ke jurnal yang lebih rumit — kayak pencatatan utang, beban, atau pendapatan diterima di muka — bakal makin gampang ketuker. Mendingan pelan-pelan sekarang, daripada ngoreksi kebiasaan salah nanti.</p>
+
+    <div class="draft-note">
+      📝 Ini masih draf awal. Ceritain pengalaman kamu sendiri di sini — misalnya momen pertama kali ngerti konsep ini, atau kesalahan yang pernah kamu buat pas awal kerja — biar tulisannya kerasa lebih personal dan bukan cuma teori dari buku.
+    </div>
+  </article>
+
+  <footer>
+    Catatan Belajar Akuntansi — ditulis sambil terus belajar.
+  </footer>
+
+</div>
+</body>
+</html>
