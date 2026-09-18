@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alur Hidup si Aset Tetap — Catatan Belajar Akuntansi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #E9EFE3; --paper-deep: #DCE5D3; --card: #F6F7F1;
+    --line: #B9C6AE; --ink: #202B22; --ink-soft: #55645A;
+    --red: #A2402E; --gold: #A8791F; --focus: #2E5C46;
+    font-family:'Inter', system-ui, sans-serif;
+  }
+  :root:not([data-theme="light"]) { @media (prefers-color-scheme: dark) {
+    --paper:#171F1A; --paper-deep:#10160F; --card:#1D2A20; --line:#354A38;
+    --ink:#E7EEE2; --ink-soft:#9FB09A; --red:#D9705A; --gold:#D3A845; --focus:#7FBF9E;
+  }}
+  :root[data-theme="dark"] {
+    --paper:#171F1A; --paper-deep:#10160F; --card:#1D2A20; --line:#354A38;
+    --ink:#E7EEE2; --ink-soft:#9FB09A; --red:#D9705A; --gold:#D3A845; --focus:#7FBF9E;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--paper); color:var(--ink); -webkit-font-smoothing:antialiased; }
+  a{ color:inherit; }
+  :focus-visible{ outline:2px solid var(--focus); outline-offset:3px; }
+  .wrap{ max-width:720px; margin:0 auto; padding:0 24px; }
+
+  header{ padding:28px 0 18px; border-bottom:1px solid var(--line); }
+  .headbar{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .mark{ width:30px; height:30px; flex:none; }
+  .brand-name{ font-family:'Fraunces', serif; font-size:1.05rem; font-weight:600; }
+  .back{ font-size:0.88rem; color:var(--ink-soft); text-decoration:none; }
+  .back:hover{ color:var(--ink); }
+
+  .post-head{ padding:44px 0 8px; }
+  .post-meta{ display:flex; gap:10px; align-items:center; font-size:0.82rem; margin-bottom:14px; }
+  .post-cat{ color:var(--red); font-weight:600; }
+  .post-date{ color:var(--ink-soft); }
+  .post-head h1{
+    font-family:'Fraunces', serif; font-weight:500; font-size:2rem;
+    line-height:1.25; margin:0 0 10px; max-width:20ch;
+  }
+  .post-head .dek{ color:var(--ink-soft); font-size:1.02rem; line-height:1.6; max-width:56ch; margin:0; }
+
+  article{ padding:28px 0 20px; font-size:1.03rem; line-height:1.75; }
+  article p{ margin:0 0 20px; }
+  article h2{
+    font-family:'Fraunces', serif; font-weight:500; font-size:1.35rem;
+    margin:38px 0 14px;
+  }
+  article ul{ margin:0 0 20px; padding-left:22px; }
+  article li{ margin-bottom:8px; }
+  article .lead{
+    font-family:'Fraunces', serif; font-size:1.22rem; line-height:1.55;
+    color:var(--ink); margin-bottom:26px;
+  }
+
+  .taccount{ background:var(--card); border:1px solid var(--line); border-radius:4px; padding:18px 20px 20px; margin:26px 0; }
+  .taccount .acc-title{ font-family:'Fraunces', serif; font-size:0.98rem; text-align:center; margin:0 0 12px; }
+  .taccount table{ width:100%; border-collapse:collapse; font-size:0.86rem; }
+  .taccount thead th{ text-align:left; font-weight:600; padding:0 0 7px; border-bottom:2px solid var(--ink); }
+  .taccount thead th:last-child{ text-align:right; }
+  .taccount td{ padding:6px 0; border-bottom:1px solid var(--line); color:var(--ink-soft); font-variant-numeric:tabular-nums; }
+  .taccount td:last-child{ text-align:right; }
+  .taccount .caption{ margin:12px 0 0; font-size:0.78rem; color:var(--ink-soft); line-height:1.5; }
+
+  .callout{
+    border-left:3px solid var(--gold); padding:4px 0 4px 18px; margin:26px 0;
+    color:var(--ink-soft); font-size:0.96rem; line-height:1.6;
+  }
+
+  .draft-note{
+    margin-top:44px; padding:16px 18px; background:var(--card);
+    border:1px dashed var(--line); border-radius:4px;
+    font-size:0.85rem; color:var(--ink-soft); line-height:1.6;
+  }
+
+  .compare-table{ margin:26px 0; overflow-x:auto; }
+  .compare-table table{ width:100%; border-collapse:collapse; font-size:0.86rem; background:var(--card); border:1px solid var(--line); border-radius:4px; }
+  .compare-table caption{ text-align:left; font-family:'Fraunces', serif; font-size:0.95rem; margin-bottom:10px; color:var(--ink); caption-side:top; }
+  .compare-table th, .compare-table td{ padding:10px 14px; border:1px solid var(--line); text-align:left; vertical-align:top; }
+  .compare-table thead th{ font-weight:600; background:var(--paper-deep); }
+  .compare-table td{ color:var(--ink-soft); line-height:1.5; }
+
+  footer{ border-top:1px solid var(--line); padding:26px 0 40px; color:var(--ink-soft); font-size:0.85rem; margin-top:20px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="headbar">
+      <a class="brand" href="index.html">
+        <svg class="mark" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="1" y="1" width="32" height="32" rx="3" stroke="var(--ink)" stroke-width="1.4"/>
+          <line x1="17" y1="4" x2="17" y2="30" stroke="var(--ink)" stroke-width="1.4"/>
+          <line x1="4" y1="11" x2="30" y2="11" stroke="var(--line)" stroke-width="1.1"/>
+          <line x1="4" y1="18" x2="30" y2="18" stroke="var(--line)" stroke-width="1.1"/>
+          <line x1="4" y1="25" x2="30" y2="25" stroke="var(--line)" stroke-width="1.1"/>
+        </svg>
+        <span class="brand-name">Catatan Belajar Akuntansi</span>
+      </a>
+      <a class="back" href="index.html">← Semua tulisan</a>
+    </div>
+  </header>
+
+  <div class="post-head">
+    <div class="post-meta">
+      <span class="post-cat">Dasar-dasar</span>
+      <span class="post-date">18 Sep 2026</span>
+    </div>
+    <h1>Alur Hidup si Aset Tetap</h1>
+    <p class="dek">Tanpa sadar, setiap kali bikin jurnal, kita sebenarnya lagi nyeritain kisah hidup sebuah aset — dari lahir sampai "pensiun".</p>
+  </div>
+
+  <article>
+    <p class="lead">Kalian nyadar nggak, kalau kita itu sebenarnya mencatat alur hidup si aset tetap di dalam laporan keuangan? Dari awal dibeli, sampai akhirnya "pensiun" dan hilang dari catatan.</p>
+
+    <p>Sebelum masuk ke ceritanya, kenalan dulu sama tokoh utamanya. Aset tetap punya tiga ciri khas:</p>
+    <ul>
+      <li>Berwujud fisik — bisa dilihat dan dipegang, bukan sekadar hak atau kontrak</li>
+      <li>Diharapkan dipakai lebih dari satu tahun</li>
+      <li>Dipakai untuk operasional perusahaan sehari-hari, bukan untuk dijual lagi</li>
+    </ul>
+
+    <h2>Babak 1: Lahir, Waktu Dibeli</h2>
+    <p>Kisahnya dimulai saat perusahaan membeli aset tetap ini. Jurnal yang biasa muncul di titik ini kira-kira begini:</p>
+
+    <div class="taccount">
+      <p class="acc-title">Pembelian Aset Tetap</p>
+      <table>
+        <thead><tr><th>Debit</th><th>Kredit</th></tr></thead>
+        <tbody>
+          <tr><td>Aset Tetap</td><td>—</td></tr>
+          <tr><td>PPN Masukan (VAT In)</td><td>—</td></tr>
+          <tr><td>—</td><td>Utang Usaha (AP)</td></tr>
+        </tbody>
+      </table>
+      <p class="caption">PPN Masukan adalah pajak yang dibayar saat beli, dan nanti bisa dikreditkan/dikembalikan. Utang Usaha muncul kalau pembayarannya belum tunai.</p>
+    </div>
+
+    <h2>Babak 2: Mulai "Kerja"</h2>
+    <p>Aset tetap dicatat sejak dibeli, tapi penyusutannya baru mulai dihitung sejak aset itu benar-benar siap dan mulai digunakan untuk operasional. Jadi ada jeda waktu antara "dimiliki" dan "mulai dihitung menuanya".</p>
+
+    <p>Supaya suatu pengeluaran boleh diakui sebagai aset tetap (bukan langsung jadi beban), ada dua syarat yang harus dipenuhi:</p>
+    <ul>
+      <li>Kemungkinan besar manfaat ekonominya akan mengalir ke perusahaan di masa depan</li>
+      <li>Nilai perolehannya bisa diukur secara andal</li>
+    </ul>
+    <p>Dua syarat ini juga berlaku untuk pengeluaran susulan setelah aset dimiliki. Kalau pengeluaran itu memenuhi kedua syarat di atas, nilainya ditambahkan ke aset tetap (dikapitalisasi). Tapi kalau tidak — misalnya biaya perawatan rutin sehari-hari — pengeluaran itu langsung dicatat sebagai beban pada saat terjadinya, bukan menambah nilai aset.</p>
+
+    <h2>Babak 3: Menua Pelan-pelan (Depresiasi)</h2>
+    <p>Ini bagian yang sering disalahpahami. Depresiasi atau penyusutan bukan berarti barangnya beneran rusak atau nggak bisa dipakai lagi — ini cuma cara mengalokasikan biaya pemakaian aset itu secara bertahap, selama masa manfaatnya. Setiap periode, jurnalnya kira-kira begini:</p>
+
+    <div class="taccount">
+      <p class="acc-title">Pencatatan Depresiasi</p>
+      <table>
+        <thead><tr><th>Debit</th><th>Kredit</th></tr></thead>
+        <tbody>
+          <tr><td>Beban Depresiasi</td><td>—</td></tr>
+          <tr><td>—</td><td>Akumulasi Penyusutan</td></tr>
+        </tbody>
+      </table>
+      <p class="caption">Beban Depresiasi masuk ke laporan laba rugi periode itu, sedangkan Akumulasi Penyusutan mengurangi nilai aset di neraca — bukan langsung mengurangi akun Aset Tetap-nya.</p>
+    </div>
+
+    <div class="callout">Bayangin kayak nyicil biaya. Alih-alih nyatet semua biaya sekaligus pas beli, biayanya "dicicil" tiap periode sesuai berapa lama aset itu dipakai.</div>
+
+    <p>Ada dua metode yang umum dipakai untuk menghitung cicilan ini, tapi yang paling sering ditemui di praktik adalah metode garis lurus, karena caranya paling sederhana:</p>
+
+    <ul>
+      <li><strong>Metode Garis Lurus</strong> — beban depresiasi jumlahnya sama tiap periode, dihitung dengan rumus:
+        <br><em>Beban Depresiasi = (Harga Perolehan − Nilai Residu) ÷ Umur Manfaat</em>
+      </li>
+      <li><strong>Metode Saldo Menurun</strong> — beban depresiasi lebih besar di awal, lalu makin mengecil tiap periode, dihitung dengan rumus:
+        <br><em>Beban Depresiasi = Nilai Buku Awal Periode × Tarif Penyusutan</em>
+      </li>
+    </ul>
+
+    <h2>Babak 4: Dinilai Ulang (Revaluasi)</h2>
+    <p>Kadang, perusahaan menilai ulang aset tetapnya supaya nilainya di laporan mencerminkan kondisi terkini — bisa naik atau turun dari nilai buku sebelumnya. Nggak semua perusahaan melakukan ini secara rutin, tergantung kebijakan masing-masing. Perlakuan jurnalnya beda tergantung hasilnya naik (surplus) atau turun (rugi):</p>
+
+    <div class="taccount">
+      <p class="acc-title">Revaluasi — Nilai Naik (Surplus)</p>
+      <table>
+        <thead><tr><th>Debit</th><th>Kredit</th></tr></thead>
+        <tbody>
+          <tr><td>Aset Tetap</td><td>—</td></tr>
+          <tr><td>—</td><td>Surplus Revaluasi Aset Tetap</td></tr>
+        </tbody>
+      </table>
+      <p class="caption">Kenaikan nilai dicatat sebagai Surplus Revaluasi di bagian ekuitas — bukan langsung jadi keuntungan di laporan laba rugi.</p>
+    </div>
+
+    <div class="taccount">
+      <p class="acc-title">Revaluasi — Nilai Turun (Rugi)</p>
+      <table>
+        <thead><tr><th>Debit</th><th>Kredit</th></tr></thead>
+        <tbody>
+          <tr><td>Rugi Penurunan Nilai Aset Tetap</td><td>—</td></tr>
+          <tr><td>—</td><td>Aset Tetap</td></tr>
+        </tbody>
+      </table>
+      <p class="caption">Sebaliknya, penurunan nilai dicatat sebagai Rugi Penurunan Nilai di laporan laba rugi periode itu.</p>
+    </div>
+
+    <div class="compare-table">
+      <table>
+        <caption>Pengakuan selisih antara nilai wajar dan nilai tercatat saat revaluasi</caption>
+        <thead>
+          <tr><th>Kondisi</th><th>Dampak ke penghasilan komprehensif lain</th><th>Dampak ke laba rugi</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ketika nilai wajar &gt; nilai tercatat aset</td>
+            <td>Diakui menambah surplus revaluasi.</td>
+            <td>Diakui sebagai laba revaluasi, jika terdapat rugi revaluasi sebelumnya.</td>
+          </tr>
+          <tr>
+            <td>Ketika nilai wajar &lt; nilai tercatat aset</td>
+            <td>Diakui mengurangi surplus revaluasi, jika terdapat surplus revaluasi sebelumnya.</td>
+            <td>Diakui rugi revaluasi.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Babak Akhir: Pensiun dari Laporan</h2>
+    <p>Cerita si aset tetap berakhir ketika ia dihapus dari laporan keuangan — entah karena dijual, rusak total, sudah tidak digunakan lagi, atau ditukar dengan aset baru. Di titik ini, nilai aset dan akumulasi penyusutannya sama-sama "dibersihkan" dari neraca.</p>
+
+    <p>Salah satu bentuknya adalah pertukaran aset (trade-in) — aset lama dilepas untuk mendapatkan aset baru, kadang disertai pembayaran tunai tambahan. Kalau nilai buku aset lama lebih tinggi dari nilai tukarnya, muncul kerugian:</p>
+
+    <div class="taccount">
+      <p class="acc-title">Pertukaran Aset — Rugi</p>
+      <table>
+        <thead><tr><th>Debit</th><th>Kredit</th></tr></thead>
+        <tbody>
+          <tr><td>Kendaraan (baru)</td><td>—</td></tr>
+          <tr><td>Akumulasi Penyusutan (kendaraan lama)</td><td>—</td></tr>
+          <tr><td>Kerugian Pertukaran Aset</td><td>—</td></tr>
+          <tr><td>—</td><td>Kendaraan (lama)</td></tr>
+          <tr><td>—</td><td>Kas</td></tr>
+        </tbody>
+      </table>
+      <p class="caption">Kendaraan lama dan akumulasi penyusutannya dihapus dari neraca, kendaraan baru dicatat sebesar nilai perolehannya, dan selisih yang merugikan diakui sebagai beban.</p>
+    </div>
+
+    <p>Sebaliknya, kalau nilai tukar aset lama lebih tinggi dari nilai bukunya, perusahaan malah untung dari pertukaran ini:</p>
+
+    <div class="taccount">
+      <p class="acc-title">Pertukaran Aset — Surplus</p>
+      <table>
+        <thead><tr><th>Debit</th><th>Kredit</th></tr></thead>
+        <tbody>
+          <tr><td>Kendaraan (baru)</td><td>—</td></tr>
+          <tr><td>Akumulasi Penyusutan (kendaraan lama)</td><td>—</td></tr>
+          <tr><td>—</td><td>Kendaraan (lama)</td></tr>
+          <tr><td>—</td><td>Kas</td></tr>
+          <tr><td>—</td><td>Keuntungan Pertukaran Aset</td></tr>
+        </tbody>
+      </table>
+      <p class="caption">Pola jurnalnya sama seperti kondisi rugi, cuma selisihnya sekarang menguntungkan sehingga dicatat sebagai Keuntungan Pertukaran Aset di sisi kredit.</p>
+    </div>
+
+    <div class="draft-note">
+      📝 Draf ini masih versi umum. Kalau ada momen di kerjaan kamu yang mengingatkan ke salah satu babak di atas — misalnya waktu pertama kali ikut proses pencatatan aset atau lihat proses penghapusan aset — ceritain aja, biar tulisannya makin hidup dan personal.
+    </div>
+  </article>
+
+  <footer>
+    Catatan Belajar Akuntansi — ditulis sambil terus belajar.
+  </footer>
+
+</div>
+</body>
+</html>
