@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revenue: Si Tulang Punggung Perusahaan — Catatan Belajar Akuntansi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #E9EFE3; --paper-deep: #DCE5D3; --card: #F6F7F1;
+    --line: #B9C6AE; --ink: #202B22; --ink-soft: #55645A;
+    --red: #A2402E; --gold: #A8791F; --focus: #2E5C46;
+    font-family:'Inter', system-ui, sans-serif;
+  }
+  :root:not([data-theme="light"]) { @media (prefers-color-scheme: dark) {
+    --paper:#171F1A; --paper-deep:#10160F; --card:#1D2A20; --line:#354A38;
+    --ink:#E7EEE2; --ink-soft:#9FB09A; --red:#D9705A; --gold:#D3A845; --focus:#7FBF9E;
+  }}
+  :root[data-theme="dark"] {
+    --paper:#171F1A; --paper-deep:#10160F; --card:#1D2A20; --line:#354A38;
+    --ink:#E7EEE2; --ink-soft:#9FB09A; --red:#D9705A; --gold:#D3A845; --focus:#7FBF9E;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--paper); color:var(--ink); -webkit-font-smoothing:antialiased; }
+  a{ color:inherit; }
+  :focus-visible{ outline:2px solid var(--focus); outline-offset:3px; }
+  .wrap{ max-width:720px; margin:0 auto; padding:0 24px; }
+
+  header{ padding:28px 0 18px; border-bottom:1px solid var(--line); }
+  .headbar{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .mark{ width:30px; height:30px; flex:none; }
+  .brand-name{ font-family:'Fraunces', serif; font-size:1.05rem; font-weight:600; }
+  .back{ font-size:0.88rem; color:var(--ink-soft); text-decoration:none; }
+  .back:hover{ color:var(--ink); }
+
+  .post-head{ padding:44px 0 8px; }
+  .post-meta{ display:flex; gap:10px; align-items:center; font-size:0.82rem; margin-bottom:14px; }
+  .post-cat{ color:var(--red); font-weight:600; }
+  .post-date{ color:var(--ink-soft); }
+  .post-head h1{
+    font-family:'Fraunces', serif; font-weight:500; font-size:2rem;
+    line-height:1.25; margin:0 0 10px; max-width:22ch;
+  }
+  .post-head .dek{ color:var(--ink-soft); font-size:1.02rem; line-height:1.6; max-width:56ch; margin:0; }
+
+  article{ padding:28px 0 20px; font-size:1.03rem; line-height:1.75; }
+  article p{ margin:0 0 20px; }
+  article h2{
+    font-family:'Fraunces', serif; font-weight:500; font-size:1.35rem;
+    margin:38px 0 14px;
+  }
+  article ul, article ol{ margin:0 0 20px; padding-left:22px; }
+  article li{ margin-bottom:10px; }
+  article .lead{
+    font-family:'Fraunces', serif; font-size:1.22rem; line-height:1.55;
+    color:var(--ink); margin-bottom:26px;
+  }
+
+  .steps{ list-style:none; margin:0 0 30px; padding:0; counter-reset:step; }
+  .steps li{
+    counter-increment:step;
+    display:flex; gap:16px; margin-bottom:22px;
+    padding-bottom:22px; border-bottom:1px solid var(--line);
+  }
+  .steps li:last-child{ border-bottom:none; }
+  .steps li::before{
+    content:counter(step);
+    font-family:'Fraunces', serif; font-size:1.1rem; font-weight:600;
+    color:var(--red); flex:none; width:28px; height:28px;
+    border:1px solid var(--line); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .steps .step-title{ font-weight:600; margin:0 0 6px; }
+  .steps .step-body{ color:var(--ink-soft); font-size:0.96rem; line-height:1.6; margin:0; }
+
+  .taccount{ background:var(--card); border:1px solid var(--line); border-radius:4px; padding:18px 20px 20px; margin:26px 0; }
+  .taccount .acc-title{ font-family:'Fraunces', serif; font-size:0.98rem; text-align:center; margin:0 0 12px; }
+  .taccount table{ width:100%; border-collapse:collapse; font-size:0.86rem; }
+  .taccount thead th{ text-align:left; font-weight:600; padding:0 0 7px; border-bottom:2px solid var(--ink); }
+  .taccount thead th:last-child{ text-align:right; }
+  .taccount td{ padding:6px 0; border-bottom:1px solid var(--line); color:var(--ink-soft); font-variant-numeric:tabular-nums; }
+  .taccount td:last-child{ text-align:right; }
+  .taccount .caption{ margin:12px 0 0; font-size:0.78rem; color:var(--ink-soft); line-height:1.5; }
+
+  .callout{
+    border-left:3px solid var(--gold); padding:4px 0 4px 18px; margin:26px 0;
+    color:var(--ink-soft); font-size:0.96rem; line-height:1.6;
+  }
+
+  .draft-note{
+    margin-top:44px; padding:16px 18px; background:var(--card);
+    border:1px dashed var(--line); border-radius:4px;
+    font-size:0.85rem; color:var(--ink-soft); line-height:1.6;
+  }
+
+  footer{ border-top:1px solid var(--line); padding:26px 0 40px; color:var(--ink-soft); font-size:0.85rem; margin-top:20px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="headbar">
+      <a class="brand" href="index.html">
+        <svg class="mark" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="1" y="1" width="32" height="32" rx="3" stroke="var(--ink)" stroke-width="1.4"/>
+          <line x1="17" y1="4" x2="17" y2="30" stroke="var(--ink)" stroke-width="1.4"/>
+          <line x1="4" y1="11" x2="30" y2="11" stroke="var(--line)" stroke-width="1.1"/>
+          <line x1="4" y1="18" x2="30" y2="18" stroke="var(--line)" stroke-width="1.1"/>
+          <line x1="4" y1="25" x2="30" y2="25" stroke="var(--line)" stroke-width="1.1"/>
+        </svg>
+        <span class="brand-name">Catatan Belajar Akuntansi</span>
+      </a>
+      <a class="back" href="index.html">← Semua tulisan</a>
+    </div>
+  </header>
+
+  <div class="post-head">
+    <div class="post-meta">
+      <span class="post-cat">Konsep</span>
+      <span class="post-date">28 Sep 2026</span>
+    </div>
+    <h1>Revenue: Si Tulang Punggung Perusahaan</h1>
+    <p class="dek">Kelihatannya simpel di teori, tapi di praktik, revenue justru salah satu area yang paling menuntut ketelitian dan kemampuan analitis.</p>
+  </div>
+
+  <article>
+    <p class="lead">Kalian pasti tau kan seberapa penting peran revenue? Coba bayangin kalau nggak ada revenue, gimana nasib suatu perusahaan? Revenue ini penting banget buat dipelajari — bahkan saking pentingnya, ada perusahaan yang menjadikan revenue sebagai divisi yang berdiri sendiri. Pernah dengar posisi revenue accountant, revenue analyst, dan semacamnya? Mereka inilah yang mengurus end-to-end revenue cycle perusahaan.</p>
+
+    <p>Secara teori, revenue ini sebenarnya cukup simpel untuk dipelajari. Tapi di praktiknya, revenue justru menuntut kemampuan teliti, kritis, dan analitis yang tinggi. Kenapa harus kritis? Karena di bidang revenue, kita dituntut untuk bisa mengidentifikasi kontrak dengan pelanggan, menganalisis isi perjanjian dengan partner, apa yang sebenarnya kita jual, dan berapa yang akan jadi revenue kita nanti.</p>
+
+    <p>Yuk kita bahas dulu, step by step, cara mempelajari si revenue ini — mengacu ke standar yang berlaku sekarang, PSAK 115 (Pendapatan dari Kontrak dengan Pelanggan).</p>
+
+    <h2>5 Tahap Mengakui Pendapatan</h2>
+    <p>PSAK 115 membagi proses pengakuan pendapatan jadi lima tahap berurutan. Begini alurnya:</p>
+
+    <ol class="steps">
+      <li>
+        <div>
+          <p class="step-title">Identifikasi Kontrak dengan Pelanggan</p>
+          <p class="step-body">Pastikan dulu ada kontrak yang sah — kedua belah pihak sepakat, hak dan kewajiban masing-masing jelas, dan yang penting, perusahaan punya keyakinan bahwa pembayarannya memang bakal tertagih.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <p class="step-title">Identifikasi Kewajiban Pelaksanaan</p>
+          <p class="step-body">Dari satu kontrak, breakdown dulu apa aja janji yang harus dipenuhi ke pelanggan. Kadang satu kontrak isinya cuma satu janji, kadang lebih dari satu — dan itu dipisah kalau masing-masing bisa berdiri sendiri (distinct).</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <p class="step-title">Tentukan Harga Transaksi</p>
+          <p class="step-body">Hitung total imbalan yang berhak diterima perusahaan dari kontrak itu. Nggak selalu angka tetap — bisa ada komponen variabel kayak bonus, diskon, atau potensi retur yang perlu diestimasi.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <p class="step-title">Alokasikan Harga Transaksi ke Setiap Kewajiban Pelaksanaan</p>
+          <p class="step-body">Kalau kewajiban pelaksanaannya lebih dari satu, harga transaksi tadi dibagi ke masing-masing, biasanya berdasarkan harga jual berdiri sendiri (stand-alone selling price) dari tiap komponen.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <p class="step-title">Akui Pendapatan Saat Kewajiban Pelaksanaan Diselesaikan</p>
+          <p class="step-body">Ini titik akhirnya: pendapatan baru dicatat ketika perusahaan benar-benar menyerahkan barang/jasa dan pelanggan mendapat kendali atasnya — bisa sekaligus di satu titik waktu, atau bertahap sepanjang periode tertentu.</p>
+        </div>
+      </li>
+    </ol>
+
+    <p>Biar kebayang, coba lihat contoh sederhana: sebuah platform streaming menjual paket langganan setahun, dibayar penuh di depan.</p>
+
+    <div class="taccount">
+      <p class="acc-title">Penerimaan Langganan Setahun (di Muka)</p>
+      <table>
+        <thead><tr><th>Debit</th><th>Kredit</th></tr></thead>
+        <tbody>
+          <tr><td>Kas</td><td>—</td></tr>
+          <tr><td>—</td><td>Pendapatan Diterima di Muka</td></tr>
+        </tbody>
+      </table>
+      <p class="caption">Uangnya sudah diterima, tapi kewajiban pelaksanaannya (menyediakan akses layanan) belum selesai — jadi belum boleh langsung diakui sebagai pendapatan.</p>
+    </div>
+
+    <div class="taccount">
+      <p class="acc-title">Pengakuan Pendapatan Tiap Bulan</p>
+      <table>
+        <thead><tr><th>Debit</th><th>Kredit</th></tr></thead>
+        <tbody>
+          <tr><td>Pendapatan Diterima di Muka</td><td>—</td></tr>
+          <tr><td>—</td><td>Revenue/Sales</td></tr>
+        </tbody>
+      </table>
+      <p class="caption">Karena layanannya dinikmati pelanggan sepanjang waktu (bukan sekali serah-terima), pendapatan diakui bertahap tiap bulan sejalan dengan penyelesaian kewajiban pelaksanaannya.</p>
+    </div>
+
+    <div class="callout">Inti dari lima tahap ini sebenarnya satu pertanyaan besar: kapan tepatnya perusahaan benar-benar "berhak" mengakui uang yang diterima sebagai pendapatan — bukan sekadar kapan uangnya masuk ke rekening.</div>
+
+    <div class="draft-note">
+      📝 Draf ini masih versi umum berdasarkan kerangka PSAK 115. Kalau ada kasus nyata dari kerjaan kamu yang mirip salah satu tahap di atas — misalnya proses identifikasi kontrak dengan partner pembayaran — ceritain aja, biar tulisannya lebih hidup dan berbasis pengalaman asli, bukan cuma teori standar.
+    </div>
+  </article>
+
+  <footer>
+    Catatan Belajar Akuntansi — ditulis sambil terus belajar.
+  </footer>
+
+</div>
+</body>
+</html>
