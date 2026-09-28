@@ -77,6 +77,20 @@
     font-size:0.85rem; color:var(--ink-soft); line-height:1.6;
   }
 
+  .discuss{
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    margin-top:34px; padding:16px 18px; background:var(--card);
+    border:1px solid var(--line); border-radius:4px;
+  }
+  .discuss p{ margin:0; font-size:0.92rem; color:var(--ink-soft); flex:1; min-width:200px; }
+  .discuss a{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:0.86rem; font-weight:600; text-decoration:none;
+    color:var(--ink); border:1px solid var(--ink); border-radius:3px;
+    padding:8px 14px; white-space:nowrap;
+  }
+  .discuss a:hover{ background:var(--ink); color:var(--paper); }
+
   footer{ border-top:1px solid var(--line); padding:26px 0 40px; color:var(--ink-soft); font-size:0.85rem; margin-top:20px; }
 </style>
 </head>
@@ -137,6 +151,11 @@
 
     <div class="draft-note">
       📝 Ini masih draf awal. Ceritain pengalaman kamu sendiri di sini — misalnya momen pertama kali ngerti konsep ini, atau kesalahan yang pernah kamu buat pas awal kerja — biar tulisannya kerasa lebih personal dan bukan cuma teori dari buku.
+    </div>
+
+    <div class="discuss">
+      <p>Ada pertanyaan atau mau diskusi soal tulisan ini?</p>
+      <a href="https://www.linkedin.com/in/azizatunannisa/" target="_blank" rel="noopener">Chat aku di LinkedIn →</a>
     </div>
   </article>
 
